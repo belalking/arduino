@@ -55,12 +55,12 @@ void loop() {
 //1 dim but readable in dark (0.28mA)
 
 void displayNumber(int toDisplay) {
-#define DISPLAY_BRIGHTNESS 100
+#define DISPLAY_BRIGHTNESS 200
 
 #define DIGIT_ON  LOW
 #define DIGIT_OFF HIGH
 
-  //long beginTime = millis();
+  long beginTime = millis();
 
   for(int digit = 4 ; digit > 0 ; digit--) {
 
@@ -96,7 +96,7 @@ void displayNumber(int toDisplay) {
     digitalWrite(digit4, DIGIT_OFF);
   }
 
-  //while( (millis() - beginTime) < 10) ; //Wait for 20ms to pass before we paint the display again
+  while( (millis() - beginTime) < 10) ; //Wait for 20ms to pass before we paint the display again
 }
 
 //Given a number, turns on those segments
