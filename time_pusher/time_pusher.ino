@@ -1,6 +1,6 @@
 #include <Servo.h>
 
-Servo myservo; // servo instance
+Servo pusher_servo; //Servo instance 
 
 int digit1 = 11; //PWM Display pin 12
 int digit2 = 10; //PWM Display pin 9
@@ -8,19 +8,19 @@ int digit3 = 9; //PWM Display pin 8
 int digit4 = 6; //PWM Display pin 6
 int segA = 2; //Display pin 11
 int segB = 3; //Display pin 7
-int segC = 4; //Display pin 4
 int segD = 5; //Display pin 2
-int segE = 12; //Display pin 1
+int segC = 4; //Display pin 4
+int segE = 34; //Display pin 1
 int segF = 7; //Display pin 10
 int segG = 8; //Display pin 5
 
-int led = 13; // led pin
-int button = 30; //button pin
+int led_pin = 13; // led pin 
+int button_pin = 30; //button pin
 int ptr_pin = A0; //porentiometer analog pin
 int servo_pin = 32;
-int start_angle = 15;
-int end_angle = 35;
 
+int start_angle = 15; //start searvo angle
+int end_angle = 35;   
 int current_delay = 0; 
 long start_time = 0;
 
@@ -43,21 +43,21 @@ void setup() {
 
   Serial.begin(9600);
   
-  myservo.attach(servo_pin);
-  myservo.write(start_angle);
+  pusher_servo.attach(servo_pin);
+  pusher_servo.write(start_angle);
 
-  pinMode(led, OUTPUT);
-  pinMode(button, INPUT);
+  pinMode(led_pin, OUTPUT);
+  pinMode(button_pin, INPUT);
 }
 
 //  Serial.println(v);
 void loop() {
   
-  int button_status = digitalRead(button);
-  digitalWrite(led, button_status);
+  int button_status = digitalRead(button_pin);
+  digitalWrite(led_pin, button_status);
   
   if (button_status == BUTTON_DOWN) {
-    myservo.write(end_angle);
+    pusher_servo.write(end_angle);
     start_time = millis();
   }
   
@@ -72,7 +72,7 @@ void loop() {
     displayNumber(millis() - start_time);
     if (millis() - start_time > current_delay) {
       start_time = 0;
-      myservo.write(start_angle);
+      pusher_servo.write(start_angle);
     }
   }
 }
