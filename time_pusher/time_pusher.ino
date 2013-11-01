@@ -1,5 +1,5 @@
 #include <Servo.h>
-#include <Dig4seg7.h> http://git.io/8Y6SGg
+#include <Dig4seg7.h> // http://git.io/8Y6SGg
 
 Servo pusherServo; //Servo instance 
 int digitsPins[] = {11,10,9,6}; //<- PWM avr pin. display pin -> 12,9,8,6 
