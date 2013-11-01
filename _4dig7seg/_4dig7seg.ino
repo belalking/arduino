@@ -35,9 +35,6 @@ void loop() {
   displayNumber(val);    
 }
 
-//Given a number, we display 10:22
-//After running through the 4 numbers, the display is left turned off
-
 //Display brightness
 //Each digit is on for a certain amount of microseconds
 //Then it is off until we have reached a total of 20ms for the function call
