@@ -40,8 +40,7 @@ void loop() {
     currentDelay = map(analogRead(ptrPin), 0, 1023, 0, 9999);
     numberForDisplayng = currentDelay;
   }
-  else
-  {
+  else {
     if (millis() - startTime > currentDelay) {
       startTime = 0;
       pusherServo.write(startAngle);
